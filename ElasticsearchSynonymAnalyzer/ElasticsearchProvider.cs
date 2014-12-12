@@ -35,8 +35,8 @@ namespace ElasticsearchSynonymAnalyzer
 							{
 								new CustomAnalyzer("my_analyzer")
 								{
-									Tokenizer = DefaultTokenizers.Standard,
-									Filter = new List<string> {DefaultTokenFilters.Standard, DefaultTokenFilters.Lowercase, "john_synonym"}
+									Tokenizer = DefaultTokenizers.Whitespace,
+									Filter = new List<string> {DefaultTokenFilters.Lowercase, "john_synonym"}
 								}
 							}
 						},
@@ -48,8 +48,8 @@ namespace ElasticsearchSynonymAnalyzer
 								{
 									Synonyms = new List<string>
 									{
-										"sean  => john",
-										"séan => john",
+										"sean  => john, sean, séan",
+										"séan => john, sean, séan",
 										"johny => john",
 									}
 								}
@@ -72,6 +72,16 @@ namespace ElasticsearchSynonymAnalyzer
 		{
 			var jm = new Member {Id = 1, FamilyName = "Moore", Info = "In the club since 1976", Name = "John"};
 			_context.AddUpdateDocument(jm, jm.Id);
+			var jj = new Member { Id = 2, FamilyName = "Jones", Info = "A great help for the background staff", Name = "Johny" };
+			_context.AddUpdateDocument(jj, jj.Id);
+			var pm = new Member { Id = 3, FamilyName = "Murphy", Info = "Likes to take control", Name = "Paul" };
+			_context.AddUpdateDocument(pm, pm.Id);
+			var sm = new Member { Id = 4, FamilyName = "McGurk", Info = "Fresh and fit", Name = "Séan" };
+			_context.AddUpdateDocument(sm, sm.Id);
+			var sob = new Member { Id = 5, FamilyName = "O'Brien", Info = "Not much use, bit of a problem", Name = "Sean" };
+			_context.AddUpdateDocument(sob, sob.Id);
+			var tmc = new Member { Id = 5, FamilyName = "McCauley", Info = "Couldn't ask for anyone better", Name = "Tadhg" };
+			_context.AddUpdateDocument(tmc, tmc.Id);
 
 			_context.SaveChanges();
 		}
