@@ -23,13 +23,13 @@ namespace ElasticsearchSynonymAnalyzer
 
 			//{
 			//  "query": {
-			//	"query_string": {
-			//	  "query": "jo*",
-			//	  "analyzer": "my_analyzer"
-			//	}
+			//		"match": {"name": "sean"}
+			//	 }
 			//  }
 			//}
 
+
+			//	http://localhost:9200/members/_analyze?&analyzer=my_analyzer
 		}
 	}
 
@@ -37,7 +37,7 @@ namespace ElasticsearchSynonymAnalyzer
 	{
 		public long Id { get; set; }
 
-		[ElasticsearchString(Index = StringIndex.analyzed, Fields = typeof(FieldDataDefinition))]
+		[ElasticsearchString(Index = StringIndex.analyzed, Analyzer="john_analyzer", Fields = typeof(FieldDataDefinition))]
 		public string Name { get; set; }
 
 		public string FamilyName { get; set; }

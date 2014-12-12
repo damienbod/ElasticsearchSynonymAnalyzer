@@ -33,7 +33,7 @@ namespace ElasticsearchSynonymAnalyzer
 						{
 							Analyzers = new List<AnalyzerBase>
 							{
-								new CustomAnalyzer("my_analyzer")
+								new CustomAnalyzer("john_analyzer")
 								{
 									Tokenizer = DefaultTokenizers.Whitespace,
 									Filter = new List<string> {DefaultTokenFilters.Lowercase, "john_synonym"}
