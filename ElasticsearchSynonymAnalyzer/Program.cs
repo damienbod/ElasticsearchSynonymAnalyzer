@@ -14,11 +14,9 @@ namespace ElasticsearchSynonymAnalyzer
 
 			// create a new index and type mapping in elasticseach
 			elasticsearchMemberProvider.CreateIndex(indexDefinition);
-
 			Console.ReadLine();
 
 			elasticsearchMemberProvider.CreateSomeMembers();
-
 			Console.ReadLine();
 
 			//{
@@ -28,8 +26,20 @@ namespace ElasticsearchSynonymAnalyzer
 			//  }
 			//}
 
+			var resultSean = elasticsearchMemberProvider.Search("sean");
+			Console.WriteLine("Found for sean Total: {0}", resultSean.Hits.Total);
+			Console.ReadLine();
 
-			//	http://localhost:9200/members/_analyze?&analyzer=my_analyzer
+			var resultJohny = elasticsearchMemberProvider.Search("Johny");
+			Console.WriteLine("Found for Johny Total: {0}", resultJohny.Hits.Total);
+			Console.ReadLine();
+
+			var resultSeanWithFada = elasticsearchMemberProvider.Search("Séan");
+			Console.WriteLine("Found for Séan Total: {0}", resultSeanWithFada.Hits.Total);
+
+			//	http://localhost:9200/members/_analyze?&analyzer=john_analyzer
+
+			Console.ReadLine();
 		}
 	}
 

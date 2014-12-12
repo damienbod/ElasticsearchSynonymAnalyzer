@@ -3,6 +3,8 @@ using ElasticsearchCRUD;
 using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel;
 using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel.Analyzers;
 using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel.Filters;
+using ElasticsearchCRUD.ContextSearch;
+using ElasticsearchCRUD.ContextSearch.SearchModel;
 using ElasticsearchCRUD.Model;
 using ElasticsearchCRUD.Tracing;
 
@@ -84,6 +86,18 @@ namespace ElasticsearchSynonymAnalyzer
 			_context.AddUpdateDocument(tmc, tmc.Id);
 
 			_context.SaveChanges();
+		}
+
+		//{
+		//  "query": {
+		//		"match": {"name": "sean"}
+		//	 }
+		//  }
+		//}
+		public SearchResult<Member> Search(string name)
+		{
+			var query = "{ \"query\": { \"match\": {\"name\": \""+ name + "\"} }  } }";
+			return _context.Search<Member>(query).PayloadResult;
 		}
 
 	}
