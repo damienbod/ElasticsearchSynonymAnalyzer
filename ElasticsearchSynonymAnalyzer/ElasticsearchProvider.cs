@@ -82,7 +82,7 @@ namespace ElasticsearchSynonymAnalyzer
 			_context.AddUpdateDocument(sm, sm.Id);
 			var sob = new Member { Id = 5, FamilyName = "O'Brien", Info = "Not much use, bit of a problem", Name = "Sean" };
 			_context.AddUpdateDocument(sob, sob.Id);
-			var tmc = new Member { Id = 5, FamilyName = "McCauley", Info = "Couldn't ask for anyone better", Name = "Tadhg" };
+			var tmc = new Member { Id = 6, FamilyName = "McCauley", Info = "Couldn't ask for anyone better", Name = "Tadhg" };
 			_context.AddUpdateDocument(tmc, tmc.Id);
 
 			_context.SaveChanges();
