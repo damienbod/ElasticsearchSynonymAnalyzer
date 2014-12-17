@@ -23,7 +23,6 @@ namespace ElasticsearchSynonymAnalyzer
 			//  "query": {
 			//		"match": {"name": "sean"}
 			//	 }
-			//  }
 			//}
 
 			var resultSean = elasticsearchMemberProvider.Search("sean");
