@@ -6,6 +6,8 @@ using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel.Filters;
 using ElasticsearchCRUD.ContextSearch;
 using ElasticsearchCRUD.ContextSearch.SearchModel;
 using ElasticsearchCRUD.Model;
+using ElasticsearchCRUD.Model.SearchModel;
+using ElasticsearchCRUD.Model.SearchModel.Queries;
 using ElasticsearchCRUD.Tracing;
 
 namespace ElasticsearchSynonymAnalyzer
@@ -96,8 +98,13 @@ namespace ElasticsearchSynonymAnalyzer
 		//}
 		public SearchResult<Member> Search(string name)
 		{
-			var query = "{ \"query\": { \"match\": {\"name\": \""+ name + "\"} } }";
-			return _context.Search<Member>(query).PayloadResult;
+			//var query = "{ \"query\": { \"match\": {\"name\": \""+ name + "\"} } }";
+			var search = new Search
+			{
+				Query = new Query(new MatchQuery("name", name))
+			};
+
+			return _context.Search<Member>(search).PayloadResult;
 		}
 
 	}
