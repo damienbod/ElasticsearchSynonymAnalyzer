@@ -98,7 +98,6 @@ namespace ElasticsearchSynonymAnalyzer
 		//}
 		public SearchResult<Member> Search(string name)
 		{
-			//var query = "{ \"query\": { \"match\": {\"name\": \""+ name + "\"} } }";
 			var search = new Search
 			{
 				Query = new Query(new MatchQuery("name", name))
