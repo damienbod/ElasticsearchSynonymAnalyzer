@@ -35,3 +35,5 @@ https://damienbod.wordpress.com/2014/12/12/elasticsearch-synonym-analyzer-using-
 <a href="https://damienbod.wordpress.com/2015/01/24/search-queries-and-filters-with-elasticsearchcrud/">Part 14: Search Queries and Filters with ElasticsearchCRUD</a>
 
 <a href="https://damienbod.wordpress.com/2015/01/28/elasticsearch-bulk-insert/">Part 15: Elasticsearch Bulk Insert</a>
+
+<a href="https://damienbod.wordpress.com/2015/02/08/elasticsearch-aggregations-with-elasticsearchcrud/">Part 16: Elasticsearch Aggregations With ElasticsearchCRUD</a>
